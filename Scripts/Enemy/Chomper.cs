@@ -49,24 +49,12 @@ public class Chomper : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Patrol(temp);
         Attack();
         isAttacking = false;
     }
 
    
-    void Patrol(Transform goal) 
-    {
-        transform.position = Vector2.MoveTowards(transform.position, goal.position, speed * Time.deltaTime);
-        if (Vector2.Distance(transform.position, goal.position) <0.2) { transform.position = transform.position; }
-          if(waitTime <= 0)
-        {
-            random = Random.Range(0, movePoints.Length);
-            waitTime = startWaitTime;
-
-        } else { waitTime -= Time.deltaTime; }
-    }
-
+   
     public void TakeDamage()
     {
         currentHealth -= 20;
